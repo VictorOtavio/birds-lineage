@@ -1,6 +1,6 @@
-# Budgies Lineage
+# Birds Lineage
 
-A tool to help breeders to catalog and manage their budgies.
+A tool to help breeders to catalog and manage their birds.
 
 ## License
 
