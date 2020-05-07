@@ -25,42 +25,44 @@
     </div>
 
     <div id="navbar" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="{{ route('dashboard') }}">
-          {{ __('Birds') }}
-        </a>
-        <a class="navbar-item" href="{{ route('breeding') }}">
-          {{ __('Breeding') }}
-        </a>
-        <a class="navbar-item" href="{{ route('genealogy') }}">
-          {{ __('Genealogy') }}
-        </a>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#">
-            {{ __('Repertories') }}
+      @auth
+        <div class="navbar-start">
+          <a class="navbar-item" href="{{ route('dashboard') }}">
+            {{ __('Birds') }}
           </a>
-          <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="{{ route('repertories:cages.index') }}">
-              {{ __('Cages') }}
+          <a class="navbar-item" href="{{ route('breeding') }}">
+            {{ __('Breeding') }}
+          </a>
+          <a class="navbar-item" href="{{ route('genealogy') }}">
+            {{ __('Genealogy') }}
+          </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="#">
+              {{ __('Repertories') }}
             </a>
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" href="{{ route('repertories:cages.index') }}">
+                {{ __('Cages') }}
+              </a>
+            </div>
           </div>
+          <a class="navbar-item" href="{{ route('follow-up') }}">
+            {{ __('Follow-up') }}
+          </a>
+          <a class="navbar-item" href="{{ route('funds') }}">
+            {{ __('Funds') }}
+          </a>
+          <a class="navbar-item" href="{{ route('miscellaneous') }}">
+            {{ __('Miscellaneous') }}
+          </a>
+          <a class="navbar-item" href="{{ route('sources') }}">
+            {{ __('Sources') }}
+          </a>
+          <a class="navbar-item" href="{{ route('hand-feeding') }}">
+            {{ __('Hand-feeding') }}
+          </a>
         </div>
-        <a class="navbar-item" href="{{ route('follow-up') }}">
-          {{ __('Follow-up') }}
-        </a>
-        <a class="navbar-item" href="{{ route('funds') }}">
-          {{ __('Funds') }}
-        </a>
-        <a class="navbar-item" href="{{ route('miscellaneous') }}">
-          {{ __('Miscellaneous') }}
-        </a>
-        <a class="navbar-item" href="{{ route('sources') }}">
-          {{ __('Sources') }}
-        </a>
-        <a class="navbar-item" href="{{ route('hand-feeding') }}">
-          {{ __('Hand-feeding') }}
-        </a>
-      </div>
+      @endauth
 
       <div class="navbar-end">
         <!-- Authentication Links -->
