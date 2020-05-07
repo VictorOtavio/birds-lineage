@@ -35,26 +35,16 @@
             >
           </div>
           @error('number')
-          <p class="help is-danger">{{ $message }}</p>
+            <p class="help is-danger">{{ $message }}</p>
           @enderror
         </div>
 
         <div class="field is-grouped">
           <div class="control">
-            <button type="submit" class="button is-link">
-              <span class="icon">
-                <i class="fas fa-save"></i>
-              </span>
-              <span>{{ __('Save') }}</span>
-            </button>
+            <x-save-button />
           </div>
           <div class="control">
-            <a class="button is-link is-light" href="{{ route('repertories:cages.index') }}">
-              <span class="icon">
-                <i class="fas fa-long-arrow-alt-left"></i>
-              </span>
-              <span>{{ __('Back to index') }}</span>
-            </a>
+            <x-back-to-index-button url="{{ route('repertories:cages.index') }}" />
           </div>
         </div>
       </form>
