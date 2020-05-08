@@ -46,12 +46,12 @@ class CagesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Cage  $cage
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cage $cage)
     {
-        return view('repertories.cages.show');
+        return abort(404);
     }
 
     /**
@@ -80,11 +80,13 @@ class CagesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Cage  $cage
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cage $cage)
     {
-        //
+        $cage->delete();
+
+        return response(null, 204);
     }
 }

@@ -28,29 +28,25 @@
     </div>
 
     @if (!$cages->isEmpty())
-      <ul class="block-list">
+      <ul class="cage-list block-list">
         @foreach ($cages as $cage)
-          <li class="is-clearfix">
+          <li class="cage-item is-clearfix">
             {{ __('Cage number') }}: <strong>{{ $cage['number'] }}</strong>
             <div class="is-pulled-right">
               <a
-                href="{{ route('repertories:cages.edit', $cage['id']) }}"
-                class="button is-link is-small"
                 title="{{ __('Edit') }}"
+                class="button is-link is-small"
+                href="{{ route('repertories:cages.edit', $cage['id']) }}"
               >
-                <span class="icon">
-                  <i class="fas fa-edit"></i>
-                </span>
+                <span class="icon"><i class="fas fa-edit"></i></span>
               </a>
-              <a
-                href="{{ route('repertories:cages.destroy', $cage['id']) }}"
-                class="button is-danger is-small"
+              <button
                 title="{{ __('Remove') }}"
+                class="button is-danger is-small"
+                data-delete="{{ route('repertories:cages.destroy', $cage['id']) }}"
               >
-                <span class="icon">
-                  <i class="fas fa-times"></i>
-                </span>
-              </a>
+                <span class="icon"><i class="fas fa-times"></i></span>
+              </button>
             </div>
           </li>
         @endforeach
@@ -67,4 +63,47 @@
     @endif
   </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    $("[data-delete]").on('click', function(event) {
+      event.preventDefault();
+
+      var btn = event.currentTarget
+
+      Bulma.create("alert", {
+        type: "danger",
+        title: "{{ __('Are you sure?') }}",
+        body: `Are you sure you want to remove this cage?
+          <br>
+          This action cannot be undone.`,
+        cancel: "{{ __('Cancel') }}",
+        confirm: {
+          label: "{{ __('OK') }}",
+          classes: ["has-focus"],
+          onClick: function() {
+            axios.delete($(btn).data('delete'))
+              .then(function (response) {
+                var row = $(btn).closest(".cage-item").first();
+                row.style.background = "#ff0";
+                fadeOut(row, 630, function() {
+                  row.remove();
+                })
+              })
+              .catch(function (error) {
+                Bulma.create("alert", {
+                  type: "danger",
+                  title: "{{ __('Alert') }}",
+                  body: "{{ __('An error has occurred!') }}",
+                  confirm: "{{ __('Close') }}"
+                });
+              });
+          }
+        }
+      });
+    });
+  });
+</script>
 @endsection
