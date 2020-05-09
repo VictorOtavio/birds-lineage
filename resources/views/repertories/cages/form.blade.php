@@ -31,7 +31,12 @@
   </div>
 
   <div class="card-content">
-    <form action="{{ route('repertories:cages.store') }}" method="post">
+    @if (isset($cage))
+      <form action="{{ route('repertories:cages.update', $cage->id) }}" method="POST">
+      <input type="hidden" name="_method" value="PATCH">
+    @else
+      <form action="{{ route('repertories:cages.store') }}" method="POST">
+    @endif
       @csrf
 
       <div class="field">

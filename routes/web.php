@@ -18,11 +18,13 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::prefix('/breeding')->as('breeding:')->group(function () {
+        Route::resource('pairs', 'PairsController');
+    });
+    Route::get('/genealogy', 'DashboardController@index')->name('genealogy');
     Route::prefix('/repertories')->as('repertories:')->group(function () {
         Route::resource('cages', 'CagesController');
     });
-    Route::get('/breeding', 'DashboardController@index')->name('breeding');
-    Route::get('/genealogy', 'DashboardController@index')->name('genealogy');
     Route::get('/follow-up', 'DashboardController@index')->name('follow-up');
     Route::get('/funds', 'DashboardController@index')->name('funds');
     Route::get('/miscellaneous', 'DashboardController@index')->name('miscellaneous');

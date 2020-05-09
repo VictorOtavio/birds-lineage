@@ -13,7 +13,7 @@
 <body>
   <nav class="navbar is-primary">
     <div class="navbar-brand">
-      <a class="navbar-item" href="{{ url('/') }}">
+      <a class="navbar-item" href="{{ route('dashboard') }}">
         <img src="{{ asset('img/logo-small.png') }}" alt="" style="margin-right: .5rem">
         <strong>{{ config('app.name') }}</strong>
       </a>
@@ -31,9 +31,16 @@
           <a class="navbar-item" href="{{ route('dashboard') }}">
             {{ __('Birds') }}
           </a>
-          <a class="navbar-item" href="{{ route('breeding') }}">
-            {{ __('Breeding') }}
-          </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="#">
+              {{ __('Breeding') }}
+            </a>
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" href="{{ route('breeding:pairs.index') }}">
+                {{ __('Pairs') }}
+              </a>
+            </div>
+          </div>
           <a class="navbar-item" href="{{ route('genealogy') }}">
             {{ __('Genealogy') }}
           </a>
