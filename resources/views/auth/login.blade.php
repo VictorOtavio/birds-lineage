@@ -18,26 +18,20 @@
             <div class="field">
               <label class="label">{{ __('E-Mail Address') }}</label>
               <div class="control">
-                <input type="email" class="input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                <input type="email" class="input @error('email') is-danger @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
               </div>
-
               @error('email')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
+                <p class="help is-danger">{{ $message }}</p>
               @enderror
             </div>
 
             <div class="field">
               <label class="label">{{ __('Password') }}</label>
               <div class="control">
-                <input type="password" class="input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                <input type="password" class="input @error('password') is-danger @enderror" name="password" required autocomplete="current-password">
               </div>
-
               @error('password')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
+                <p class="help is-danger">{{ $message }}</p>
               @enderror
             </div>
 
@@ -58,9 +52,9 @@
               </div>
               @if (Route::has('password.request'))
                 <div class="control">
-                  <button class="button is-link is-light">
+                  <a href="{{ route('password.request') }}" class="button is-link is-light">
                     {{ __('Forgot Your Password?') }}
-                  </button>
+                  </a>
                 </div>
               @endif
             </div>
