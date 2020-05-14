@@ -22,6 +22,7 @@ class BirdsController extends Controller
     {
         $birds = Bird::with(['species', 'cage', 'father', 'mother'])
             ->where('status', BirdStatusType::Available)
+            ->orderBy('hatch_date')
             ->get()
             ->map(fn ($b) => $this->birdPresenter($b));
 

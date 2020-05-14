@@ -23,54 +23,6 @@
       </div>
     @endif
 
-    <form action="{{ route('birds:index') }}" method="GET" class="has-margin-bottom-16">
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label" for="filter_sex">{{ __('Sex') }}</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <div class="select is-fullwidth">
-                <select id="filter_sex" placeholder="{{ __('Bird sex') }}">
-                  <option value="">{{ __('Select...') }}</option>
-                  @foreach (\App\Enums\BirdSexType::toSelectArray() as $key => $value)
-                    <option value="{{ $key }}">{{ __($value) }}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="field-label is-normal">
-          <label class="label" for="filter_status">{{ __('Status') }}</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <div class="select is-fullwidth">
-                <select id="filter_status" placeholder="{{ __('Bird status') }}">
-                  <option value="">{{ __('Select...') }}</option>
-                  @foreach (\App\Enums\BirdStatusType::toSelectArray() as $key => $value)
-                    <option value="{{ $key }}">{{ __($value) }}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="field has-margin-left-16">
-          <p class="control">
-            <a class="button is-primary">
-              Submit
-            </a>
-          </p>
-        </div>
-      </div>
-    </form>
-
     <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
       <thead>
         <tr>
