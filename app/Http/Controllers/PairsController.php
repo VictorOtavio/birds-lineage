@@ -113,8 +113,8 @@ class PairsController extends Controller
     {
         $attributes = $pair->getAttributes();
 
-        $attributes['male'] = $pair->male->name;
-        $attributes['female'] = $pair->female->name;
+        $attributes['male'] = $pair->male !== null ? $pair->male->identifier : null;
+        $attributes['female'] = $pair->female !== null ? $pair->female->identifier : null;
         $attributes['cage'] = $pair->cage->number;
 
         return $attributes;

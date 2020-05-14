@@ -14,4 +14,12 @@ class Cage extends Model
     protected $fillable = [
         'number',
     ];
+
+    /**
+     * Get the birds of this cage.
+     */
+    public function birds()
+    {
+        return $this->hasMany(Bird::class);
+    }
 }

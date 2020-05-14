@@ -12,13 +12,18 @@ class Bird extends Model
      * @var array
      */
     protected $fillable = [
-        'gender',
-        'name',
+        'identifier',
+        'status',
+        'sub_status',
+        'species_id',
+        'sex',
+        'origin',
+        'band',
+        'hatch_date',
+        'cage_id',
         'father_id',
         'mother_id',
-        'birth',
-        'end',
-        'end_desc',
+        'end_date',
     ];
 
     /**
@@ -27,10 +32,12 @@ class Bird extends Model
      * @var array
      */
     protected $casts = [
-        'father_id' => 'integer',
-        'mother_id' => 'integer',
-        'birth'     => 'date',
-        'end'       => 'date',
+        'species_id' => 'integer',
+        'cage_id'    => 'integer',
+        'father_id'  => 'integer',
+        'mother_id'  => 'integer',
+        'hatch_date' => 'date',
+        'end_date'   => 'date',
     ];
 
     /**
@@ -47,5 +54,21 @@ class Bird extends Model
     public function mother()
     {
         return $this->belongsTo(Bird::class, 'mother_id');
+    }
+
+    /**
+     * Get the species of this bird.
+     */
+    public function species()
+    {
+        return $this->belongsTo(Species::class);
+    }
+
+    /**
+     * Get the cage of this bird.
+     */
+    public function cage()
+    {
+        return $this->belongsTo(Cage::class);
     }
 }

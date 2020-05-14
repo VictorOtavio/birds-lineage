@@ -28,7 +28,7 @@
     <div id="navbar" class="navbar-menu">
       @auth
         <div class="navbar-start">
-          <a class="navbar-item" href="{{ route('dashboard') }}">
+          <a class="navbar-item" href="{{ route('birds:index') }}">
             {{ __('Birds') }}
           </a>
           <div class="navbar-item has-dropdown is-hoverable">

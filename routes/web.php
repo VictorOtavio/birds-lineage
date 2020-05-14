@@ -21,6 +21,9 @@ Route::middleware('auth')->group(function () {
     Route::prefix('/breeding')->as('breeding:')->group(function () {
         Route::resource('pairs', 'PairsController');
     });
+    Route::prefix('/birds')->as('birds:')->group(function () {
+        Route::resource('', 'BirdsController');
+    });
     Route::get('/genealogy', 'DashboardController@index')->name('genealogy');
     Route::prefix('/repertories')->as('repertories:')->group(function () {
         Route::resource('cages', 'CagesController');
