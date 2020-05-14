@@ -35,7 +35,7 @@
     @endif
 
     @if (isset($bird))
-      <form action="{{ route('birds:update', $bird->id) }}" method="POST">
+      <form action="{{ route('birds:update', $bird['id']) }}" method="POST">
       <input type="hidden" name="_method" value="PATCH">
     @else
       <form action="{{ route('birds:store') }}" method="POST">
@@ -169,8 +169,8 @@
               placeholder="{{ __('Bird father') }}"
             >
               <option value="">{{ __('Select...') }}</option>
-              @foreach ($selects['male_birds'] as $bird)
-                <option value="{{ $bird['id'] }}">{{ $bird['identifier'] }}</option>
+              @foreach ($selects['male_birds'] as $males)
+                <option value="{{ $males['id'] }}">{{ $males['identifier'] }}</option>
               @endforeach
             </select>
           </div>
@@ -193,8 +193,8 @@
               placeholder="{{ __('Bird mother') }}"
             >
               <option value="">{{ __('Select...') }}</option>
-              @foreach ($selects['female_birds'] as $bird)
-                <option value="{{ $bird['id'] }}">{{ $bird['identifier'] }}</option>
+              @foreach ($selects['female_birds'] as $females)
+                <option value="{{ $females['id'] }}">{{ $females['identifier'] }}</option>
               @endforeach
             </select>
           </div>
