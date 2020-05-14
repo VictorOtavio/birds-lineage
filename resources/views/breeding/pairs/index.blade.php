@@ -77,7 +77,7 @@
 </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     $("[data-delete]").on('click', function(event) {
@@ -118,4 +118,4 @@
     });
   });
 </script>
-@endsection
+@endpush
