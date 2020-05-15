@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <nav class="navbar is-primary">
+  <nav class="navbar is-primary has-margin-bottom-16">
     <div class="navbar-brand">
       <a class="navbar-item" href="{{ route('dashboard') }}">
         <img src="{{ asset('img/logo-small.png') }}" alt="" style="margin-right: .5rem">

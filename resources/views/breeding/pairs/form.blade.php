@@ -1,24 +1,6 @@
 @extends('layout')
 
 @section('content')
-<nav class="breadcrumb has-margin-top-24">
-  <ul>
-    <li>
-      <a href="{{ route('breeding:pairs.index') }}">{{ __('Breeding') }}</a>
-    </li>
-    <li>
-      <a href="{{ route('breeding:pairs.index') }}">{{ __('Pairs') }}</a>
-    </li>
-    <li class="is-active">
-      @if (isset($pair))
-        <a href="{{ route('breeding:pairs.edit', $pair['id']) }}">{{ __('Update pair') }}</a>
-      @else
-        <a href="{{ route('breeding:pairs.create') }}">{{ __('Add new pair') }}</a>
-      @endif
-    </li>
-  </ul>
-</nav>
-
 <div class="card">
   <div class="card-header has-background-primary">
     <div class="card-header-title has-text-white">

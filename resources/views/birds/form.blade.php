@@ -1,21 +1,6 @@
 @extends('layout')
 
 @section('content')
-<nav class="breadcrumb has-margin-top-24">
-  <ul>
-    <li class="is-active">
-      <a href="{{ route('birds:index') }}">{{ __('Birds') }}</a>
-    </li>
-    <li class="is-active">
-      @if (isset($bird))
-        <a href="{{ route('birds:edit', $bird->id) }}">{{ __('Update bird') }}</a>
-      @else
-        <a href="{{ route('birds:create') }}">{{ __('Add new bird') }}</a>
-      @endif
-    </li>
-  </ul>
-</nav>
-
 <div class="card">
   <div class="card-header has-background-primary">
     <div class="card-header-title has-text-white">

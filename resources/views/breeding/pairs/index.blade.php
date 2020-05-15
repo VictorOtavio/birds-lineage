@@ -1,17 +1,6 @@
 @extends('layout')
 
 @section('content')
-<nav class="breadcrumb has-margin-top-24">
-  <ul>
-    <li>
-      <a href="{{ route('breeding:pairs.index') }}">{{ __('Breeding') }}</a>
-    </li>
-    <li class="is-active">
-      <a href="{{ route('breeding:pairs.index') }}">{{ __('Pairs') }}</a>
-    </li>
-  </ul>
-</nav>
-
 <div class="card">
   <div class="card-header has-background-primary">
     <div class="card-header-title has-text-white">
