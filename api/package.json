@@ -22,12 +22,10 @@
     "dependencies": {
         "@creativebulma/bulma-tooltip": "^1.0.2",
         "@fortawesome/fontawesome-free": "^5.13.0",
-        "@prettier/plugin-php": "^0.14.0",
         "@vizuaalog/bulmajs": "^0.10.3",
         "bulma": "^0.8.2",
         "bulma-block-list": "^0.3.0",
         "bulma-spacing": "^1.2.0",
-        "prettier": "^2.0.5",
         "umbrellajs": "^3.1.0"
     }
 }
