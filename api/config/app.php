@@ -165,7 +165,6 @@ return [
         /*
          * Package Service Providers...
          */
-        BenSampo\Enum\EnumServiceProvider::class,
 
         /*
          * Application Service Providers...

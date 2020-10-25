@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Bird extends Model
 {
+    use HasFactory;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -13,17 +16,16 @@ class Bird extends Model
      */
     protected $fillable = [
         'identifier',
+        'band',
+        'gender',
+        'hatch_date',
+        'end_date',
         'status',
         'sub_status',
-        'species_id',
-        'sex',
-        'origin',
-        'band',
-        'hatch_date',
-        'cage_id',
+        'species',
         'father_id',
         'mother_id',
-        'end_date',
+        'origin',
     ];
 
     /**
@@ -32,8 +34,6 @@ class Bird extends Model
      * @var array
      */
     protected $casts = [
-        'species_id' => 'integer',
-        'cage_id'    => 'integer',
         'father_id'  => 'integer',
         'mother_id'  => 'integer',
         'hatch_date' => 'date',
@@ -42,6 +42,8 @@ class Bird extends Model
 
     /**
      * Get the father bird of this bird.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function father()
     {
@@ -50,25 +52,11 @@ class Bird extends Model
 
     /**
      * Get the mother bird of this bird.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function mother()
     {
         return $this->belongsTo(Bird::class, 'mother_id');
-    }
-
-    /**
-     * Get the species of this bird.
-     */
-    public function species()
-    {
-        return $this->belongsTo(Species::class);
-    }
-
-    /**
-     * Get the cage of this bird.
-     */
-    public function cage()
-    {
-        return $this->belongsTo(Cage::class);
     }
 }
