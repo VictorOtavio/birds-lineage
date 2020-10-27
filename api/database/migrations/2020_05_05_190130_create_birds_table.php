@@ -1,12 +1,12 @@
 <?php
 
-use App\Enums\BirdOriginType;
 use App\Enums\BirdSexType;
+use App\Enums\BirdOriginType;
 use App\Enums\BirdStatusType;
 use App\Enums\BirdSubStatusType;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateBirdsTable extends Migration
 {
@@ -27,8 +27,8 @@ class CreateBirdsTable extends Migration
             $table->enum('status', BirdStatusType::getValues())->default(BirdStatusType::Available);
             $table->enum('sub_status', BirdSubStatusType::getValues())->default(BirdSubStatusType::Reproduction);
             $table->string('species')->nullable();
-            $table->foreignId('father_id')->constrained('birds')->nullable();
-            $table->foreignId('mother_id')->constrained('birds')->nullable();
+            $table->foreignId('father_id')->nullable()->constrained('birds');
+            $table->foreignId('mother_id')->nullable()->constrained('birds');
             $table->enum('origin', BirdOriginType::getValues())->default(BirdOriginType::MyBreeding);
             $table->timestamps();
         });

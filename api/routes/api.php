@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BirdController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -22,4 +23,7 @@ Route::prefix('auth')->group(function () {
     Route::get('user', [AuthController::class, 'user']);
 });
 
-Route::apiResource('users', UserController::class);
+Route::middleware('auth:api')->group(function () {
+    Route::apiResource('birds', BirdController::class);
+    Route::apiResource('users', UserController::class);
+});
